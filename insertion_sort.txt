@@ -1,0 +1,15 @@
+insertion_sort():
+if head == null:
+return
+current  head.next
+while current != null:
+temp  current.item
+j  current.previous
+while j != null and temp<j.item
+j.next.item  j.item
+j  j.previous
+if j == null:
+head.item  temp
+Else:
+j.next.item  temp
+current  current.next
