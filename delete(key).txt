@@ -1,0 +1,20 @@
+// Write pseudocode or Java for a delete(key) linked list method that searches for a given key and
+// removes it. If the list contains multiple matching items, remove the first one only.
+
+delete(key):
+current  this.head
+previous  null
+while current != null: # end of the list
+if current.item == key:
+if previous  null: # head
+this.head  current.next
+if this.head == null: #singleton
+this.tail  null
+else if current = this.tail: # tail
+this.tail  previous
+previous.next  null
+else:
+previous.next  current.next
+previous  current
+current  current.next
+return False or raise error
