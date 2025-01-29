@@ -1,0 +1,42 @@
+prepend(item):
+n  Node(item)
+If this.head == null: # empty case
+this.head  item
+this.tail  item
+Else:
+n.next = this.head # covers singleton case
+this.head = n
+append(item):
+n  Node(item)
+n.next  null
+if this.head == null:
+this.head  n
+this.tail  n
+else:
+this.tail.next  n
+this.tail =  n
+
+search(key):
+current  this.head
+while current != null: # end of the list
+if current.item == key:
+return current
+current  current.next
+return null # not found / empty case
+get_item(index):
+Current  this.head
+pos  0
+While current != null: # empty case
+If pos == index:
+Return current
+pos  pos + 1
+current  current.next
+raise “index out of bounds” error
+delete_first():
+removed  this.head
+If removed == null: # empty case
+Raise “empty list” error
+this.head  this.head.next
+if this.head == null: # singleton case
+this.tail  null
+return removed
