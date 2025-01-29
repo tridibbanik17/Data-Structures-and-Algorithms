@@ -1,0 +1,14 @@
+// Write an algorithm that, given two sorted arrays of 𝑛 numeric values, prints all elements that
+// appear in both arrays, in sorted order.
+
+print_duplicates(a, b):
+ia = ib = 0
+while ia<len(a) and ib<len(b):
+if a[ia] < b[ib]:
+ia  ia + 1
+else if a[ia] > b[ib]:
+ib  ib + 1
+else:
+print(a[ia])
+ia  ia + 1
+ib  ib + 1
