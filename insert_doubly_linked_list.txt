@@ -1,0 +1,25 @@
+// Write the pseudocode or Java for insert(i, item) for a doubly linked list. This operation inserts
+// item at location i in the list.
+
+# solution assumes that index i has to already exist in the list
+# For a further exercise, modify the code so that it also works as an
+# append when the size of the list is i.
+
+insert_doubly_linked_list(i, item):
+node  create_node(item)
+current  this.head # find position i if it exists
+for index  0 to i:
+if current == null:
+raise error
+current  current.next
+if current == null:
+raise error
+if current == this.head: # insert at head
+node.next  this.head
+this.head.previous  node
+this.head  node
+else: # not at head
+node.next  current
+node.previous  current.previous
+current.previous.next  node
+current.previous  node
