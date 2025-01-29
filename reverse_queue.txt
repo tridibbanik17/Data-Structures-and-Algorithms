@@ -1,0 +1,9 @@
+// Write pseudocode or Java for a client function called reverse_queue(q) that accepts a queue as
+// a parameter and uses a stack to reverse the elements in the queue
+
+reverse_queue(q):
+s  Stack()
+while not q.isEmpty():
+s.push(q.dequeue())
+while not s.isEmpty():
+q.enqueue(s.pop())
