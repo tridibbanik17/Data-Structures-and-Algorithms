@@ -1,0 +1,20 @@
+// Write an auto-resizing array version of the enqueue(item) pseudocode from class. In this
+// version, instead of raising an error when the queue is full, you should create a new array and
+// carefully copy all the elements into it.
+
+enqueue(item) :
+this.count  this.count + 1
+if this.count < length(this.items):
+this.items[this.tail] = item
+this.tail  (this.tail+1) % len(this.items)
+else:
+a  new array(len(this.items)*2)
+pos  this.head
+newpos  0
+while pos != this.tail:
+a[newpos]  this.items[pos]
+pos  (pos + 1) % len(this.items)
+newpos  newpos + 1
+this.items  a
+this.head  0
+this.tail  this.count
