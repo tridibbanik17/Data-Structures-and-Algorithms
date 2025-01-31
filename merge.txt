@@ -1,0 +1,48 @@
+// Write pseudocode for a merge function for linked lists. The function receives two (possibly empty) sorted
+// linked lists as parameters and returns a new list that represents a merge of the original lists (as in the
+// Merge Sort algorithm). The sort is in ascending (non-descending) order.
+
+function merge(list1: LinkedList, list2: LinkedList) -> LinkedList:
+    # Create a new LinkedList to hold the merged result
+    mergedList = LinkedList()
+
+    # If both lists are empty, return the empty merged list
+    if list1.head == null and list2.head == null:
+        return mergedList
+
+    # Create a dummy node to simplify linking nodes
+    dummy = Node(null)
+    tail = dummy  # Pointer to the current end of the merged list
+
+    # Pointers to traverse the input lists
+    current1 = list1.head
+    current2 = list2.head
+
+    # While there are nodes remaining in both lists
+    while current1 != null and current2 != null:
+        if current1.item <= current2.item:
+            tail.next = current1  # Link the smaller node to the merged list
+            current1 = current1.next  # Move to the next node in list1
+        else:
+            tail.next = current2  # Link the smaller node to the merged list
+            current2 = current2.next  # Move to the next node in list2
+        tail = tail.next  # Move the tail pointer to the last node in the merged list
+
+    # At this point, one of the lists is exhausted
+    # Link the remaining nodes from the non-empty list
+    if current1 != null:
+        tail.next = current1
+    else:
+        tail.next = current2
+
+    # Set the head and tail of the merged list
+    mergedList.head = dummy.next
+    mergedList.tail = getTail(mergedList.head)
+
+    return mergedList
+
+function getTail(node: Node) -> Node:
+    # Helper function to find the tail of a linked list
+    while node != null and node.next != null:
+        node = node.next
+    return node
