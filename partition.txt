@@ -1,0 +1,22 @@
+// Rewrite the Partition algorithm in pseudocode so that it works for a doubly linked list. 
+// Swapping items within Nodes is ok, you don’t have to swap the nodes themselves.
+
+partition(list, lo, hi) : # lo/hi are pointers to head/tail of sublist
+pivot  lo.item
+i  lo.next
+j  hi
+crossover  false
+loop :
+while i.item <= pivot:
+i  i.next
+if i == j: crossover = true
+if i == hi: break (while)
+while j.item >= pivot:
+j  j.previous
+if i == j: crossover = true
+if j == lo: break (while)
+if crossover: break (infinite loop)
+swap i.item, j.item
+end loop
+swap lo.item, j.item
+return j
