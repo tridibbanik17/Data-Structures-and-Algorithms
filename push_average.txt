@@ -1,0 +1,17 @@
+// Write an implementation of a push_average operation for a linked implementation of a stack that
+// stores numbers. The push_average operation accepts a stack as a parameter. It computes the
+// average value of all the items currently in the stack and then pushes that value onto the stack. Use
+// the stack implementation details shown below. You may not use any stack ADT operations for this.
+// You should accomplish the operation only by accessing the items field. If there is nothing in the
+// stack, push_average should raise an error
+
+push_average():
+if n = 0: raise Error
+sum  0
+current  head
+while current != null:
+sum  sum + current.item
+n  Node()
+n.item  sum / n
+n.next  head
+head  n
