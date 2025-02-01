@@ -1,0 +1,13 @@
+Radix_sort(a, R, w) :
+q  create_queue()
+for item in a : # load up a queue
+enqueue(q, item)
+rsort(q, R, w, w-1) # start the recursion
+for i = 0 to length(a)-1: # dump queue back into array
+a[i] = dequeue(q)
+rsort(q, R, w, current_digit) :
+if current_digit >= w: return # base case
+# create the queue buckets
+# dequeue each item and place in the correct bucket
+# call rsort on each bucket, incrementing the current digit
+# empty the buckets back into q
