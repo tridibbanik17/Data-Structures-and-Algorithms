@@ -1,0 +1,12 @@
+selection_sort(items: array, n: int):
+for pos from 0 to n - 1:
+    best = pos
+    for i from pos + 1 to n - 1:
+        if items[i] < items[best]:
+            best = i
+    // swap items[i], items[best]
+    temp = items[i]
+    items[i] = items[best]
+    items[best] = temp
+        
+        
