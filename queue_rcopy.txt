@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Write client pseudocode for a queue_rcopy function. This function takes a queue of floating point
 // values as a parameter and returns a new queue that is a copy of the original but with the order of
 // the items reversed. You may only use stack and queue ADT operations to accomplish this (no extra
@@ -17,4 +18,25 @@ q2.enqueue(i)
 s2.push(i)
 While not s2.isEmpty()
 q.enqueue(s2.pop())
+=======
+// Write client pseudocode for a queue_rcopy function. This function takes a queue of floating point
+// values as a parameter and returns a new queue that is a copy of the original but with the order of
+// the items reversed. You may only use stack and queue ADT operations to accomplish this (no extra
+// arrays or lists). You may alter the contents of the original queue while copying it but when the
+// operation is finished, it must be restored to its original state. Try to keep the code as compact and
+// efficient as possible.
+
+queue_rcopy(q):
+s Stack()
+while not q.isEmpty():
+s.push(q.dequeue())
+q2  Queue()
+s2  Stack()
+while not s.isEmpty()
+i  s.pop()
+q2.enqueue(i)
+s2.push(i)
+While not s2.isEmpty()
+q.enqueue(s2.pop())
+>>>>>>> 3dfd8d3dc375fe4e29b4b2871ccd48cf52899df2
 return q2
