@@ -1,0 +1,5 @@
+// swap algorithm
+// swap items[best], items[i]
+temp = items[best]
+items[best] = items[i]
+items[i] = temp
