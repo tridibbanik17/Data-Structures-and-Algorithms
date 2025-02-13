@@ -1,0 +1,18 @@
+// Recursively searching a binary search tree
+// Node
+// key: any
+// value: any
+// left: Node
+// right: Node
+// n: integer
+// SymbolTable 
+// root: Node 
+
+get(node, key):
+if node == null:
+  return null
+if key > node.key:
+  return get(node.right, key)
+if key < node.key:
+  return get(node.left, key)
+return node.value
