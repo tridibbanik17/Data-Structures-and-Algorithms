@@ -1,0 +1,6 @@
+#  keys operation from the ordered SymbolTable ADT using a BST implementation
+public keys(): # needs a public wrapper for the OO implementation shown in lecture
+return keys(root)
+private keys(root):
+if root == null: return []
+return keys(st.left)+[st.key]+keys[st.right]
