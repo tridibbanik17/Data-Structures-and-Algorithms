@@ -1,0 +1,15 @@
+# Enqueue or dequeue items from a stack using only stack ADT implementation.
+
+s: stack()
+
+enqueue(item):
+  s.push(item)
+
+dequeue():
+  t = stack()
+  while !s.isEmpty():
+    t.push(s.pop())
+  item = t.pop()
+  while !t.isEmpty():
+    s.push(t.pop())
+  return item
