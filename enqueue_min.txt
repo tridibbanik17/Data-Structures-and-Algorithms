@@ -1,0 +1,28 @@
+// The Queue method enqueue_min finds the minimum value of all the items currently in the queue
+// and then enqueues a new copy of the minimum value into the same queue. Write a pseudocode
+// implementation for enqueue_average assuming a fixed-length circular array implementation of a
+// queue that stores numeric data.
+// Use the Queue implementation details shown below. You may not use any Queue, Stack, or List
+// ADT operations for this. You should accomplish the operation only by accessing the fields of the
+// current Queue object. If it is not possible to perform the operation, enqueue_min should raise an
+// error.
+
+// Queue:
+// items: array of numbers
+// cap: int # array capacity
+// head: int
+// tail: int
+// n: int
+
+enqueue_min():
+if n == cap or n == 0:
+raise error
+min  items[head]
+pos  (head + 1) % cap
+loop n-1 times:
+if items[pos] < min:
+min  items[pos]
+pos  (pos + 1) % cap
+items[tail]  min
+tail  (tail + 1) % cap
+n = n + 1
