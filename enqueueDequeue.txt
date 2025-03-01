@@ -1,0 +1,20 @@
+// It is possible (but maybe not very efficient) to implement a queue using a stack and vice versa. Write
+// pseudocode for the enqueue and dequeue operations for a queue that is implemented using a
+// stack, as shown below. 
+// Only use stack ADT operations to accomplish the enqueue and dequeue (no arrays or
+lists or other data structures or ADTs). 
+
+// Queue:
+// s: Stack
+
+// Enqueue at the top
+enqueue(item):
+s.push(item)
+dequeue():
+t  Stack()
+while not s.isEmpty():
+t.push(s.pop())
+item  t.pop()
+while not t.isEmpty():
+s.push(t.pop())
+return item
