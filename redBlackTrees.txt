@@ -1,0 +1,18 @@
+// Write a pseudocode function called is_23 to check that no node is connected to
+// two red links and that there are no right-leaning red links.
+// Note – the color field of a node is true if it is red, false if it is black.
+
+is_23(node): # wrapper to present a nicer interface
+return is_23_work(node, false)
+is_23_work(node, parent_isred):
+if node == null:
+return true # empty tree is a red-black tree
+if parent_isred and node.color:
+return false # parent and this node are red
+if node.right != null and node.right.color:
+return false # right leaning red link – covers case of left and right red links
+if not is_23_work(node.right, node.color):
+return false # stop the recursion as soon as we find it’s not a 2-3 tree
+if not is_23_work(node.left, node.color):
+return false
+return true # everything checks out. It’s a 2-3 tree.
