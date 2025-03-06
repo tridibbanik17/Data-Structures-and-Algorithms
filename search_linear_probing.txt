@@ -1,0 +1,10 @@
+// Linear probing search for a hash table
+search(table, key)
+h  hash(key)
+loop:
+if table[h] empty:
+return false
+if table[h] contains key:
+return true
+else:
+h  (h+1) % m
