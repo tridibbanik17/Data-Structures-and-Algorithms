@@ -1,5 +1,5 @@
 // Linear probing insert for a hash table.
-insert(table, key) (see text p. 470)
+insert(table, key)
 h = hash(key)
 loop:
 if table[h] empty:
