@@ -1,0 +1,11 @@
+// Linear probing insert for a hash table.
+insert(table, key) (see text p. 470)
+h = hash(key)
+loop:
+if table[h] empty:
+table[h] = key
+return
+if table[h] contains key:
+return
+else:
+h = (h+1) % m
