@@ -1,0 +1,15 @@
+// Linear probing delete for a hash table
+delete(key)
+h = hash(key)
+loop:
+if a[h] empty: return
+if a[h] contains 𝑘𝑒𝑦
+a[h] = null
+adjust(h+1)
+else: h = (h+1)%m
+adjust(i)
+while a[i] != null
+key = a[i]
+a[i] = null
+insert(key)
+i = (i + 1) % m
