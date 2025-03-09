@@ -1,0 +1,12 @@
+# Write a function that accepts an array of location strings as input and uses a SymbolTable to
+# determine the most frequently visited location.
+most_visited(locations):
+st = new SymbolTable()
+for location in locations:
+  if location in st:
+    st[location] += 1
+  else:
+    st[location] = 1
+
+max_visited = max(st, key=st.get)
+return max_visited
