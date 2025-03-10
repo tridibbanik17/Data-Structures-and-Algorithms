@@ -1,0 +1,26 @@
+# In pseudocode, write a strict_floor(a, e) function that accepts a sorted array of elements (a) and an
+# element to search for (e). The strict_floor function returns the largest element found in a that is less
+# than e. If there is no such element, the function should raise an error. Make your solution as time
+# efficient as possible.
+# Note that a could contain duplicate elements.
+
+
+function strict_floor(a, e):
+    if a is empty:
+        raise error("Array is empty. Cannot find strict floor.")
+
+    left = 0
+    right = length of a - 1
+
+    while left <= right:
+        mid = floor((left + right) / 2)
+
+        if a[mid] < e:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    if a[left] < e:
+        return a[left]
+    else:
+        raise error("No strict floor found for the given element.")
