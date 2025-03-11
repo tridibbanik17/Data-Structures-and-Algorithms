@@ -1,0 +1,14 @@
+# Pseudocode DFS to count the number of connected vertices.
+dfs(g, v):
+  marked[v] = True
+  count = count + 1
+    
+  for w in g.adj(v):
+    if not marked[w]:
+      dfs(g, w)
+    
+# main code #
+marked = array(num_vertices(g)) of False
+count = 0
+    
+dfs(g, 3)
