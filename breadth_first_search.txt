@@ -1,0 +1,18 @@
+paths_bfs(g, s):
+  marked = array(g.V()) of False
+  edge_to = array(g.V()) of -1
+  open = Queue()
+ 
+  marked[s] = True
+  open.enqueue(s)
+  
+  while not open.isEmpty():
+    v = open.dequeue()
+    for w in g.adj(v):
+      if not marked[w]:
+        edge_to[w] = v
+        marked[w] = True
+        open.enqueue(w)
+  return edge_to
+
+paths_bfs(g, 3)
