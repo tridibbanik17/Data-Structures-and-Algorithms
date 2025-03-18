@@ -1,0 +1,13 @@
+# Construct an adjacency list, then show, in two separate lists, the sequence of vertices visited for the
+# pre-order and post-order traversal. Maintain the marked array.
+
+dfs(g, v):
+  pre-order:  visit v
+  mark v
+  for unmarked w’s in g.adj(v):
+	dfs(g, w)
+  post-order: visit v
+
+for v from 0 to g.V()-1
+  if v not marked:
+    dfs(g, v)
