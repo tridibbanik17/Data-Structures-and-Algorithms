@@ -1,3 +1,5 @@
+# Implement Breadth-First Search (BFS) to find the shortest paths from a starting node s to all other reachable nodes in an unweighted graph g.
+
 paths_bfs(g, s):
   marked = array(g.V()) of False
   edge_to = array(g.V()) of -1
