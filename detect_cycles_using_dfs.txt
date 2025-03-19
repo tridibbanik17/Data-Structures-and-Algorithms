@@ -1,0 +1,17 @@
+// Detect cycles in a directed graph using depth-first search
+
+detect_cycles(v):
+  on_stack[v] = True
+  marked[v] = True
+  for w in g.adj(v):
+    if has_cycle: return
+    if not marked[w]: dfs(w)
+    elif on_stack[w]: has_cycle = True
+  on_stack[v] = False
+    
+marked = array(g.V()) of False
+on_stack = array(g.V()) of False
+has_cycle = False
+for s = 0 to g.V() – 1:
+  if not marked[s] and not has_cycle:
+    dfs(s)
