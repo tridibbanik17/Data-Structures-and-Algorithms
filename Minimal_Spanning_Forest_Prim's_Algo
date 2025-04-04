@@ -1,0 +1,6 @@
+// Develop a version of Prim’s algorithm that finds the minimal spanning forest of an edge-weighted graph.
+marked = array of size V, all False
+forest = create_list()
+for v from 0 to g.V-1:
+  if not marked[v]:
+    add(forest, PrimMST(g, v))
