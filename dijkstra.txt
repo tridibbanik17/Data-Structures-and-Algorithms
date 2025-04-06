@@ -1,0 +1,23 @@
+// Dijkstra's Algorithm
+dijkstra(g, s):
+  edge_to  array of V null values
+  dist_to  array of V “infinity” values
+  pq  IndexMinPQ(g.V())
+  
+  dist_to[s]  0
+  pq.insert(s, 0)
+  
+  while not pq.isEmpty():
+    relax(g, pq.delMin(), dist_to, edge_to, pq)
+  return dist_to, edge_to
+
+private relax(g, v, dist_to, edge_to, pq):
+  for e in g.adj(v):
+    w = e.to()
+    if distTo[w] > dist_to[v] + e.weight():
+      dist_to[w]  dist_to[v] + e.weight()
+      edge_to[w]  e
+      if pq.contains(w):
+        pq.change_key(w, dist_to[w])
+      else:
+        pq.insert(w, dist_to[w])
