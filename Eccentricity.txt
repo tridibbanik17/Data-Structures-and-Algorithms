@@ -1,0 +1,52 @@
+// The eccentricity of a vertex v in an undirected, unweighted graph is the length of the shortest path from
+// v to the furthest vertex from v. The radius of a graph is the smallest eccentricity of any vertex. A center
+// of a graph is a vertex whose eccentricity is the radius. In a disconnected graph, every vertex has infinite
+// eccentricity. Write a pseudocode function that returns a data structure containing all the centers of a
+// given graph. 
+
+function findGraphCenters(graph):
+    eccentricities = new SymbolTable()           // SymbolTable<Vertex, Integer>
+    numVertices = 0
+
+    for each vertex in graph:
+        numVertices = numVertices + 1
+        ecc = calculateEccentricity(graph, vertex, numVertices)
+        eccentricities.put(vertex, ecc)
+
+    radius = ∞
+    for each vertex in graph:
+        ecc = eccentricities.get(vertex)
+        if ecc < radius:
+            radius = ecc
+
+    centers = new Queue()
+    for each vertex in graph:
+        if eccentricities.get(vertex) == radius:
+            centers.enqueue(vertex)
+
+    return centers
+
+
+function calculateEccentricity(graph, sourceVertex, totalVertexCount):
+    distTo = new SymbolTable()                   // SymbolTable<Vertex, Integer>
+    queue = new Queue()
+
+    distTo.put(sourceVertex, 0)
+    queue.enqueue(sourceVertex)
+
+    while not queue.isEmpty():
+        current = queue.dequeue()
+        for each neighbor in graph.adjacent(current):
+            if not distTo.contains(neighbor):
+                distTo.put(neighbor, distTo.get(current) + 1)
+                queue.enqueue(neighbor)
+
+    if distTo.size() < totalVertexCount:
+        return ∞                                   // Not all vertices reachable
+
+    maxDistance = 0
+    for each vertex in distTo:
+        if distTo.get(vertex) > maxDistance:
+            maxDistance = distTo.get(vertex)
+
+    return maxDistance
