@@ -1,0 +1,16 @@
+// Kruskal's algorithm to compute the Minimum Spanning Tree of any connected edge-weighted graph.
+
+KruskalMST(g):
+
+  pq = MinPQ(g.edges())
+  mst = Queue()
+  uf = UnionFind(g.V())
+
+  while not pq.isEmpty() and mst.size() < g.V() – 1:
+    e = pq.deleteMin()
+    v = e.either(), w = e.other(v)
+
+    if not uf.connected(v, w):
+      mst.enqueue(e)
+      uf.union(v, w)
+  return mst
