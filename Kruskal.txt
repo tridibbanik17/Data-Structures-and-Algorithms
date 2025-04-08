@@ -13,4 +13,11 @@ KruskalMST(g):
     if not uf.connected(v, w):
       mst.enqueue(e)
       uf.union(v, w)
-  return mst
+  return most
+
+// UnionFind ADT
+// UnionFind(n) create UnionFind structure for n items (0 to n-1)
+// void union(p, q) connect the components containing p and q
+// int find(p) return an identifier for the component containing p
+// bool connected(p, q) true if p and q in same component
+// int count() return the number of components 
