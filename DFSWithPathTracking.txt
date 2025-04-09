@@ -1,0 +1,15 @@
+// Implement DFS traversal from a starting node with path tracking and visitation count.
+
+dfsp(g, v):
+  marked[v] = True
+  count = count + 1
+  for w in g.adj(v):
+    if not marked[w]:
+      edge_to[w] = v
+      dfsp(g, w)
+
+# main code #
+marked = array(g.V()) of False
+edge_to = array(g.V()) of -1
+count = 0
+dfsp(g, 4)
