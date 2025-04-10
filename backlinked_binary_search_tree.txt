@@ -1,0 +1,69 @@
+// A backlinked binary search tree allows for a faster, non-recursive, reverse in-order traversal. 
+// In a backlinked binary search tree, any left link that would normally be null is replaced 
+// by a link to its in-order predecessor. This results in a more efficient reverse in-order traversal.
+// The backorder function prints a descending in-order traversal of keys stored in the tree in linear time.
+// The put function inserts a new key-value pair into the tree, maintaining the left links correctly.
+
+Node:
+  left, right: Node
+  key, value: any
+  n: integer
+
+// Function: backorder(node)
+// Description: Prints a descending in-order traversal of the binary search tree in linear time.
+// Works for backordered binary search trees.
+
+backorder(node):
+  loop:
+    // Find the rightmost node (maximum)
+    while node.right != null:
+      node = node.right
+    print(node.key)
+
+    // Follow the back link to the previous node in reverse in-order
+    while node.left != null and node.left.n > node.n:
+      node = node.left
+    print(node.key)
+
+    // If no left child (back link) exists, traversal is done
+    if node.left == null:
+      break
+
+    // Step left to continue traversal
+    node = node.left
+
+
+// Function: put(node, key, value)
+// Description: Inserts a new key-value pair into the backordered binary search tree.
+// If a node with the given key exists, the function replaces its value.
+
+put(node, key, value):
+  // If node is null, create a new node
+  if node == null:
+    return Node(key, value, 1)
+
+  // Insert the key-value pair into the left subtree
+  if node.key > key:
+    if node.left == null or node.left.n < node.n:  // Not a back link
+      node.left = put(node.left, key, value)
+    else:  // Back link case
+      n = Node(key, value, 1)  // Create a new node
+      n.left = node.left       // Fix up the back link
+      node.left = n            // Set the new node as the left child
+
+  // Insert the key-value pair into the right subtree
+  else if node.key < key:
+    node.right = put(node.right, key, value)
+    
+    // Fix up the back link for the right child
+    if node.right.left == null:
+      node.right.left = node
+
+  // Update the node's value if the key already exists
+  else:
+    node.value = value
+
+  // Update the size of the node
+  node.n = size(node.left) + size(node.right) + 1
+
+  return node
