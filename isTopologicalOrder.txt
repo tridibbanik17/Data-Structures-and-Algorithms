@@ -1,0 +1,23 @@
+// Write a pseudocode function that checks whether a given permutation of a DAG’s vertices is a
+// topological order of that DAG. You can assume the permutation is given as a parameter of type array,
+// linked list, or any ADT that is convenient.
+
+
+function isTopologicalOrder(graph: Digraph, permutation: List):
+    indexMap = SymbolTable()                // maps vertex -> index in permutation
+
+    // Build the index map: vertex -> its index in the permutation
+    for i from 0 to permutation.size() - 1:
+        vertex = permutation.get(i)
+        indexMap.put(vertex, i)
+
+    // For each vertex u in the graph
+    for u from 0 to graph.V() - 1:
+        adjList = graph.adj(u)
+        // For each edge u -> v
+        for j from 0 to adjList.size() - 1:
+            v = adjList.get(j)
+            if indexMap.get(u) > indexMap.get(v):
+                return false
+
+    return true
