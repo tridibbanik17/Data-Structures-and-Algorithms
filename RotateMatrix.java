@@ -14,7 +14,7 @@ public class RotateMatrix {
                 int top = matrix[first][i]; // save top
 
                 // left -> top
-                matrix[first][i] = matrix[last - offset][first];
+                matrix[first][i] = matrix[last - offset][first]; // col of left becomes row of top
 
                 // bottom -> left
                 matrix[last - offset][first] = matrix[last][last - offset];
