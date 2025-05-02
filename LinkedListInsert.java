@@ -1,4 +1,4 @@
-//  Inserting a Node to a Singly Linked List.
+// Inserting a Node to a Singly Linked List.
 public class LinkedListInsert {
     public static class Node {
         int data;
@@ -26,16 +26,23 @@ public class LinkedListInsert {
     // Insert at position (0-based index)
     public static Node insertAtPosition(Node head, int value, int index) {
         Node newNode = new Node(value);
+
+        // Handle inserting at head (index 0)
         if (index == 0) {
             newNode.next = head;
             return newNode;
         }
 
         Node current = head;
-        for (int i = 0; i < index - 1 && current != null; i++) {
+        int count = 0;
+
+        // Traverse to node just before the target index
+        while (current != null && count < index - 1) {
             current = current.next;
+            count++;
         }
 
+        // If index is out of bounds
         if (current == null) {
             System.out.println("Index out of bounds.");
             return head;
@@ -43,6 +50,7 @@ public class LinkedListInsert {
 
         newNode.next = current.next;
         current.next = newNode;
+
         return head;
     }
 
