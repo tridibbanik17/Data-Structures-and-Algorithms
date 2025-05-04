@@ -1,5 +1,6 @@
 // remove duplicates from an unsorted linked list.
-public class RemoveDuplicatesLinkedList {
+// This approach shown below using two pointers doesn't use a temporary buffer like HashSet.
+public class RemoveDuplicatesLinkedListWithoutTempBuffer {
     public static class Node {
         Node next;
         int data;
