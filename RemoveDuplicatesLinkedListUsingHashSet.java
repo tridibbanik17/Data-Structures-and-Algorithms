@@ -34,7 +34,7 @@ public class RemoveDuplicatesLinkedListUsingHashSet {
         Node current = head;
 
         while (current != null) {
-            System.out.println(current.data + " ");
+            System.out.print(current.data + " ");
             current = current.next;
         }
         System.out.println();
