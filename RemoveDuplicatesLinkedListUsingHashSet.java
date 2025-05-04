@@ -27,8 +27,6 @@ public class RemoveDuplicatesLinkedListUsingHashSet {
                 seen.add(current.next.data);
                 current = current.next;
             }
-        
-            current = current.next;
         }
     }
 
